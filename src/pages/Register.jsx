@@ -15,7 +15,7 @@ const Register = () => {
 
     try{
       
-      const res = await api.post("/apiauth/register", {name, email, password });
+      const res = await api.post("/api/auth/register", {name, email, password });
 
        localStorage.setItem('authtoken',res.data.accesstoken);
 
