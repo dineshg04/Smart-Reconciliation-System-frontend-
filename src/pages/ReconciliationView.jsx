@@ -12,32 +12,43 @@ export default function ReconciliationView() {
   const [editingRecord, setEditingRecord] = useState(null);
 
   useEffect(() => {
+  const timer = setTimeout(() => {
     const fetchData = async () => {
       try {
-        const uploadJobId = location.state?.uploadJobId || localStorage.getItem("jobid") ||{};
-        localStorage.setItem('jobid',uploadJobId);
+        const uploadJobId =
+          location.state?.uploadJobId ||
+          localStorage.getItem("jobid") ||
+          {};
+
+        localStorage.setItem("jobid", uploadJobId);
+
         if (!uploadJobId) {
           alert("no file data");
           setLoading(false);
           return;
         }
 
-        console.log('Fetching data for uploadJobId:');
+        console.log("Fetching data for uploadJobId:", uploadJobId);
 
-        const res = await api.get(`/api/auth/reconciliation/view/${uploadJobId}`);
+        const res = await api.get(
+          `/api/auth/reconciliation/view/${uploadJobId}`
+        );
 
-     
         setResults(res.data);
       } catch (err) {
-        console.error('Error fetching data:', err);
-        alert('Error loading data');
+        console.error("Error fetching data:", err);
+        alert("Error loading data");
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, 30000); // ⏱ 30 seconds
+
+  // cleanup (important!)
+  return () => clearTimeout(timer);
+}, []);
 
   const openEditModal = (result) => {
     const record = result.recordId || {};
