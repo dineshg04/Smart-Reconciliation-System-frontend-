@@ -24,7 +24,7 @@ export default function ReconciliationView() {
 
         console.log('Fetching data for uploadJobId:', uploadJobId);
 
-        const res = await api.get(`/auth/reconciliation/view/${uploadJobId}`);
+        const res = await api.get(`/api/auth/reconciliation/view/${uploadJobId}`);
 
         console.log('Response data:', res.data);
         setResults(res.data);
@@ -75,7 +75,7 @@ export default function ReconciliationView() {
       date: editingRecord.date || undefined,
     };
 
-    const res = await api.put(`/auth/records/correct/${editingRecord.id}`, updates);
+    const res = await api.put(`/api/auth/records/correct/${editingRecord.id}`, updates);
 
     if (res.status !== 200) {
       throw new Error('Failed to save changes');
@@ -86,7 +86,7 @@ export default function ReconciliationView() {
     // Refresh the list using the correct endpoint
     const { uploadJobId } = location.state || {};
     if (uploadJobId) {
-      const refreshRes = await api.get(`/auth/reconciliation/view/${uploadJobId}`);
+      const refreshRes = await api.get(`/api/auth/reconciliation/view/${uploadJobId}`);
       setResults(refreshRes.data);
     }
 

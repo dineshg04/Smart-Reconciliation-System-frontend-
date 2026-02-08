@@ -103,7 +103,7 @@ export default function UploadAndMap() {
       formData.append('file', file);
       formData.append('columnMapping', JSON.stringify(cleanMapping));
 
-      const res = await api.post('/auth/uploadfile/upload',
+      const res = await api.post('/api/auth/uploadfile/upload',
        formData,{
           headers: {
             "Content-Type": "multipart/form-data",
@@ -131,7 +131,7 @@ export default function UploadAndMap() {
     // navigate("/reconciliation", { state: { uploadId: backendResponse?.id } });
     try{
 
-      const res = await api.post("/auth/reconciliation/start",{
+      const res = await api.post("/api/auth/reconciliation/start",{
           uploadJobId : uploadjobid
       });
       console.log(res.data);
