@@ -17,7 +17,7 @@ const Login = () => {
 
       localStorage.setItem('authtoken',res.data.token);
 
-      console.log("successfully logged in!",res.data);
+      console.log("successfully logged in!");
       navigate("/");
     }catch(error){
       console.log("Error in Registering:",error);

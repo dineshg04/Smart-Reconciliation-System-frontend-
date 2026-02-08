@@ -13,7 +13,7 @@ export default function Auditlog() {
       try {
         setLoading(true);
         const res = await api.get('/api/auth/auditlog/all');
-        console.log('Audit logs:', res.data);
+        console.log('Audit logs');
         setLogs(res.data);
       } catch (err) {
         setError(err.response?.data?.message || err.message);

@@ -19,7 +19,7 @@ const Register = () => {
 
        localStorage.setItem('authtoken',res.data.accesstoken);
 
-      console.log("successfully Registered!",res.data);
+      console.log("successfully Registered!");
      navigate("/home");
     }catch(error){
       console.log("Error in Registering:",error);

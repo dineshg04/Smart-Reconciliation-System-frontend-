@@ -22,11 +22,11 @@ export default function ReconciliationView() {
           return;
         }
 
-        console.log('Fetching data for uploadJobId:', uploadJobId);
+        console.log('Fetching data for uploadJobId:');
 
         const res = await api.get(`/api/auth/reconciliation/view/${uploadJobId}`);
 
-        console.log('Response data:', res.data);
+     
         setResults(res.data);
       } catch (err) {
         console.error('Error fetching data:', err);

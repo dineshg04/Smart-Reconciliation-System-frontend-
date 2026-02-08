@@ -111,12 +111,12 @@ export default function UploadAndMap() {
         }
       );
       
-        console.log(res);
+       
       //if (!res.ok) throw new Error('Upload failed');
 
       alert("uploaded Successfully")
       setUploadjobid(res.data.uploadJobId);
-      console.log(uploadjobid);
+    
       setUploadStatus('success');
     } catch (err) {
       console.error('Upload error:', err);
@@ -134,7 +134,7 @@ export default function UploadAndMap() {
       const res = await api.post("/api/auth/reconciliation/start",{
           uploadJobId : uploadjobid
       });
-      console.log(res.data);
+  
       navigate("/reconciliationview",{
         state:{
           uploadJobId: uploadjobid,

@@ -17,7 +17,7 @@ export default function ReconciliationDashboard() {
       try {
         setLoading(true);
         const res = await api.get("/api/auth/dashboard/stats");
-        console.log(res.data);
+      
         
         setResults(res.data);
         
