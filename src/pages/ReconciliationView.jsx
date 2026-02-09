@@ -33,7 +33,8 @@ export default function ReconciliationView() {
         const res = await api.get(
           `/api/auth/reconciliation/view/${uploadJobId}`
         );
-
+        
+          console.log(res.data);
         setResults(res.data);
       } catch (err) {
         console.error("Error fetching data:", err);
