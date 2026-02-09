@@ -44,7 +44,7 @@ export default function ReconciliationView() {
     };
 
     fetchData();
-  }, 150000); // ⏱ 30 seconds
+  }, 5000); // ⏱ 30 seconds
 
   // cleanup (important!)
   return () => clearTimeout(timer);
